@@ -1,0 +1,169 @@
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+      <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+      >
+        <a
+          [routerLink]="['/core-stock', 1]"
+          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <span class="fs-5 d-none d-sm-inline">Stock App</span>
+        </a>
+        <ul
+          class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+          id="menu"
+        >
+          <li class="nav-item">
+            <a
+              href="#submenu1"
+              data-bs-toggle="collapse"
+              class="nav-link color-class align-middle px-0"
+              (click)="collapse1 = !collapse1"
+            >
+              <i
+                class="fs-4 bi"
+                [ngClass]="{
+                  'bi-chevron-right': !collapse1,
+                  'bi-chevron-down': collapse1
+                }"
+              ></i>
+              <span class="ms-1 d-none d-sm-inline">Core Stock APIs</span>
+            </a>
+            <ul
+              class="collapse nav flex-column ms-1"
+              id="submenu1"
+              data-bs-parent="#menu"
+            >
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 1]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Intraday</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 2]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Daily</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 3]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Daily Adjusted</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 4]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Weekly</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 5]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Weekly Adjusted</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 6]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Monthly</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 7]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Monthly Adjusted</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 8]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Quote Endpoint</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 9]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Ticker Search</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/core-stock', 10]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Global Market Status</span>
+                </a>
+              </li>
+              <!-- Add other links here similarly -->
+            </ul>
+          </li>
+         
+
+          <li class="nav-item">
+            <a
+              href="#submenu2"
+              data-bs-toggle="collapse"
+              class="nav-link color-class align-middle px-0"
+              (click)="collapse2 = !collapse2"
+            >
+              <i
+                class="fs-4 bi"
+                [ngClass]="{
+                  'bi-chevron-right': !collapse2,
+                  'bi-chevron-down': collapse2
+                }"
+              ></i>
+              <span class="ms-1 d-none d-sm-inline">Options Data APIs</span>
+            </a>
+            <ul
+              class="collapse nav flex-column ms-1"
+              id="submenu2"
+              data-bs-parent="#menu"
+            >
+              <li class="w-100">
+                <a
+                  [routerLink]="['/options-data', 1]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Realtime Options</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/options-data', 2]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Historical Options</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col py-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
