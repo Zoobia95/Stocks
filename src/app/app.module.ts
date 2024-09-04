@@ -9,18 +9,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreStockComponent } from './core-stock/core-stock.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OptionsDataComponent } from './options-data/options-data.component';
 
+// @ts-ignore
 @NgModule({
-  declarations: [AppComponent, CoreStockComponent, SideBarComponent, OptionsDataComponent],
+  declarations: [
+    AppComponent,
+    CoreStockComponent,
+    SideBarComponent,
+    OptionsDataComponent,
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
@@ -29,7 +38,6 @@ import { OptionsDataComponent } from './options-data/options-data.component';
     MatInputModule,
     MatFormFieldModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}
