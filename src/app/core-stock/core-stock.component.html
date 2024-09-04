@@ -1,0 +1,297 @@
+<div id="allcontent">
+  <div class="content">
+    <!-- stock-info.component.html -->
+    <div
+      class="stock-table-container"
+      *ngIf="param !== '8' && param !== '9' && param !== '10'"
+    >
+      <table mat-table [dataSource]="dataSource" matSort>
+        <!-- Columns Definition -->
+        <ng-container matColumnDef="open">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Open</th>
+          <td mat-cell *matCellDef="let element">{{ element["1. open"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="high">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>High</th>
+          <td mat-cell *matCellDef="let element">{{ element["2. high"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="low">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Low</th>
+          <td mat-cell *matCellDef="let element">{{ element["3. low"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="close">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Close</th>
+          <td mat-cell *matCellDef="let element">{{ element["4. close"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume1" *ngIf="param === '1'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["5. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume2" *ngIf="param === '2'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["5. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="adjusted_close1" *ngIf="param === '3'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Adjusted Close
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["5. adjusted close"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume3" *ngIf="param === '3'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["6. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dividend_amount1" *ngIf="param === '3'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Dividend Amount
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["7. dividend amount"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="split_coefficient" *ngIf="param === '3'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Split Coefficient
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["8. split coefficient"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume4" *ngIf="param === '4'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["5. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="adjusted_close2" *ngIf="param === '5'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Adjusted Close
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["5. adjusted close"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume5" *ngIf="param === '5'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["6. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dividend_amount2" *ngIf="param === '5'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Dividend Amount
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["7. dividend amount"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume6" *ngIf="param === '6'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["6. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="adjusted_close3" *ngIf="param === '7'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Adjusted Close
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["5. adjusted close"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume7" *ngIf="param === '7'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element["6. volume"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="dividend_amount3" *ngIf="param === '7'">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Dividend Amount
+          </th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["7. dividend amount"] }}
+          </td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </div>
+
+    <div class="stock-card" *ngIf="param === '8'">
+      <h2>{{ secondApiData["01. symbol"] }}</h2>
+      <p><strong>Open:</strong> {{ secondApiData["02. open"] }}</p>
+      <p><strong>High:</strong> {{ secondApiData["03. high"] }}</p>
+      <p><strong>Low:</strong> {{ secondApiData["04. low"] }}</p>
+      <p><strong>Price:</strong> {{ secondApiData["05. price"] }}</p>
+      <p><strong>Volume:</strong> {{ secondApiData["06. volume"] }}</p>
+      <p>
+        <strong>Latest Trading Day:</strong>
+        {{ secondApiData["07. latest trading day"] }}
+      </p>
+      <p>
+        <strong>Previous Close:</strong>
+        {{ secondApiData["08. previous close"] }}
+      </p>
+      <p><strong>Change:</strong> {{ secondApiData["09. change"] }}</p>
+      <p>
+        <strong>Change Percent:</strong>
+        {{ secondApiData["10. change percent"] }}
+      </p>
+    </div>
+
+    <div class="stock-table-container" *ngIf="param === '9'">
+      <mat-form-field>
+        <input
+          matInput
+          #input
+          (input)="search($event, input.value)"
+          (keydown)="refreshSearch($event)"
+          placeholder="Search"
+        />
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource2" matsort>
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Symbol</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["1. symbol"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element["2. name"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let element">{{ element["3. type"] }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="region">
+          <th mat-header-cell *matHeaderCellDef>Region</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["4. region"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="marketOpen">
+          <th mat-header-cell *matHeaderCellDef>Market Open</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["5. marketOpen"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="marketClose">
+          <th mat-header-cell *matHeaderCellDef>Market Close</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["6. marketClose"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="timezone">
+          <th mat-header-cell *matHeaderCellDef>Timezone</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["7. timezone"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="currency">
+          <th mat-header-cell *matHeaderCellDef>Currency</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["8. currency"] }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="matchScore">
+          <th mat-header-cell *matHeaderCellDef>Match Score</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element["9. matchScore"] }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+      </table>
+      <mat-paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </div>
+
+    <div class="stock-table-container" *ngIf="param === '10'">
+      <table mat-table [dataSource]="dataSource3" matsort>
+        <ng-container matColumnDef="market_type">
+          <th mat-header-cell *matHeaderCellDef>Market Type</th>
+          <td mat-cell *matCellDef="let element">{{ element.market_type }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="region">
+          <th mat-header-cell *matHeaderCellDef>Region</th>
+          <td mat-cell *matCellDef="let element">{{ element.region }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="primary_exchanges">
+          <th mat-header-cell *matHeaderCellDef>Primary Exchanges</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.primary_exchanges }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="local_open">
+          <th mat-header-cell *matHeaderCellDef>Local Open</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.local_open }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="local_close">
+          <th mat-header-cell *matHeaderCellDef>Local Close</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.local_close }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="current_status">
+          <th mat-header-cell *matHeaderCellDef>Current Status</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.current_status }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="notes">
+          <th mat-header-cell *matHeaderCellDef>Notes</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.notes }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns3"></tr>
+      </table>
+      <mat-paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>
