@@ -1,0 +1,116 @@
+<div id="allcontent">
+  <div class="content">
+    <div class="stock-detail" *ngIf="param === '1'">
+      <h1>{{ stock.Name }} ({{ stock.Symbol }})</h1>
+      <p><strong>Asset Type:</strong> {{ stock.AssetType }}</p>
+      <p><strong>Description:</strong> {{ stock.Description }}</p>
+      <p><strong>CIK:</strong> {{ stock.CIK }}</p>
+      <p><strong>Exchange:</strong> {{ stock.Exchange }}</p>
+      <p><strong>Currency:</strong> {{ stock.Currency }}</p>
+      <p><strong>Country:</strong> {{ stock.Country }}</p>
+      <p><strong>Sector:</strong> {{ stock.Sector }}</p>
+      <p><strong>Industry:</strong> {{ stock.Industry }}</p>
+      <p><strong>Address:</strong> {{ stock.Address }}</p>
+      <p>
+        <strong>Official Site:</strong>
+        <a [href]="stock.OfficialSite" target="_blank">{{
+          stock.OfficialSite
+        }}</a>
+      </p>
+      <p><strong>Fiscal Year End:</strong> {{ stock.FiscalYearEnd }}</p>
+      <p><strong>Latest Quarter:</strong> {{ stock.LatestQuarter }}</p>
+      <p>
+        <strong>Market Capitalization:</strong>
+        {{ formatCurrency(stock.MarketCapitalization) }}
+      </p>
+      <p><strong>EBITDA:</strong> {{ formatCurrency(stock.EBITDA) }}</p>
+      <p><strong>P/E Ratio:</strong> {{ stock.PERatio }}</p>
+      <p><strong>P/E Growth Ratio:</strong> {{ stock.PEGRatio }}</p>
+      <p><strong>Book Value:</strong> {{ formatCurrency(stock.BookValue) }}</p>
+      <p>
+        <strong>Dividend per Share:</strong>
+        {{ formatCurrency(stock.DividendPerShare) }}
+      </p>
+      <p><strong>Dividend Yield:</strong> {{ stock.DividendYield }}</p>
+      <p><strong>EPS:</strong> {{ stock.EPS }}</p>
+      <p>
+        <strong>Revenue per Share (TTM):</strong>
+        {{ formatCurrency(stock.RevenuePerShareTTM) }}
+      </p>
+      <p>
+        <strong>Profit Margin:</strong> {{ formatPercent(stock.ProfitMargin) }}
+      </p>
+      <p>
+        <strong>Operating Margin (TTM):</strong>
+        {{ formatPercent(stock.OperatingMarginTTM) }}
+      </p>
+      <p>
+        <strong>Return on Assets (TTM):</strong>
+        {{ formatPercent(stock.ReturnOnAssetsTTM) }}
+      </p>
+      <p>
+        <strong>Return on Equity (TTM):</strong>
+        {{ formatPercent(stock.ReturnOnEquityTTM) }}
+      </p>
+      <p>
+        <strong>Revenue (TTM):</strong> {{ formatCurrency(stock.RevenueTTM) }}
+      </p>
+      <p>
+        <strong>Gross Profit (TTM):</strong>
+        {{ formatCurrency(stock.GrossProfitTTM) }}
+      </p>
+      <p><strong>Diluted EPS (TTM):</strong> {{ stock.DilutedEPSTTM }}</p>
+      <p>
+        <strong>Quarterly Earnings Growth YOY:</strong>
+        {{ formatPercent(stock.QuarterlyEarningsGrowthYOY) }}
+      </p>
+      <p>
+        <strong>Quarterly Revenue Growth YOY:</strong>
+        {{ formatPercent(stock.QuarterlyRevenueGrowthYOY) }}
+      </p>
+      <p>
+        <strong>Analyst Target Price:</strong>
+        {{ formatCurrency(stock.AnalystTargetPrice) }}
+      </p>
+      <p><strong>Analyst Ratings:</strong></p>
+      <ul>
+        <li><strong>Strong Buy:</strong> {{ stock.AnalystRatingStrongBuy }}</li>
+        <li><strong>Buy:</strong> {{ stock.AnalystRatingBuy }}</li>
+        <li><strong>Hold:</strong> {{ stock.AnalystRatingHold }}</li>
+        <li><strong>Sell:</strong> {{ stock.AnalystRatingSell }}</li>
+        <li>
+          <strong>Strong Sell:</strong> {{ stock.AnalystRatingStrongSell }}
+        </li>
+      </ul>
+      <p><strong>Trailing P/E:</strong> {{ stock.TrailingPE }}</p>
+      <p><strong>Forward P/E:</strong> {{ stock.ForwardPE }}</p>
+      <p>
+        <strong>Price to Sales Ratio (TTM):</strong>
+        {{ stock.PriceToSalesRatioTTM }}
+      </p>
+      <p><strong>Price to Book Ratio:</strong> {{ stock.PriceToBookRatio }}</p>
+      <p><strong>EV to Revenue:</strong> {{ stock.EVToRevenue }}</p>
+      <p><strong>EV to EBITDA:</strong> {{ stock.EVToEBITDA }}</p>
+      <p><strong>Beta:</strong> {{ stock.Beta }}</p>
+      <p>
+        <strong>52 Week High:</strong> {{ formatCurrency(stock["52WeekHigh"]) }}
+      </p>
+      <p>
+        <strong>52 Week Low:</strong> {{ formatCurrency(stock["52WeekLow"]) }}
+      </p>
+      <p>
+        <strong>50 Day Moving Average:</strong>
+        {{ formatCurrency(stock["50DayMovingAverage"]) }}
+      </p>
+      <p>
+        <strong>200 Day Moving Average:</strong>
+        {{ formatCurrency(stock["200DayMovingAverage"]) }}
+      </p>
+      <p><strong>Shares Outstanding:</strong> {{ stock.SharesOutstanding }}</p>
+      <p><strong>Dividend Date:</strong> {{ stock.DividendDate | date }}</p>
+      <p>
+        <strong>Ex-Dividend Date:</strong> {{ stock.ExDividendDate | date }}
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+<div id="allcontent">
+  <div class="content">
+    <div class="news-articles" *ngIf="param === '1'">
+      <div class="news-article" *ngFor="let article of articles">
+        <h1 class="title">{{ article.title }}</h1>
+        <a [href]="article.url" target="_blank" class="url">Read more</a>
+
+        <div class="metadata">
+          <span class="time-published">{{
+            article.time_published | date : "yyyy-MM-dd HH:mm:ss"
+          }}</span>
+          <span class="source">{{ article.source }}</span>
+          <span class="category">{{ article.category_within_source }}</span>
+        </div>
+
+        <div class="summary">
+          <p>{{ article.summary }}</p>
+        </div>
+
+        <div class="authors">
+          <h3>Authors:</h3>
+          <ul>
+            <li *ngFor="let author of article.authors">{{ author }}</li>
+          </ul>
+        </div>
+
+        <div class="banner-image" *ngIf="article.banner_image">
+          <img [src]="article.banner_image" alt="Banner Image" />
+        </div>
+
+        <div class="topics">
+          <h3>Topics:</h3>
+          <ul>
+            <li *ngFor="let topic of article.topics">
+              {{ topic.topic }} (Relevance Score: {{ topic.relevance_score }})
+            </li>
+          </ul>
+        </div>
+
+        <div class="sentiment">
+          <h3>Overall Sentiment:</h3>
+          <p>Score: {{ article.overall_sentiment_score }}</p>
+          <p>Label: {{ article.overall_sentiment_label }}</p>
+        </div>
+
+        <div class="ticker-sentiments">
+          <h3>Ticker Sentiments:</h3>
+          <ul>
+            <li *ngFor="let ticker of article.ticker_sentiment">
+              {{ ticker.ticker }} - Relevance Score:
+              {{ ticker.relevance_score }}, Sentiment Score:
+              {{ ticker.ticker_sentiment_score }}, Label:
+              {{ ticker.ticker_sentiment_label }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="stock-table-container" *ngIf="param === '2'">
+      <table mat-table [dataSource]="dataSource2" matsort>
+        <ng-container matColumnDef="ticker">
+          <th mat-header-cell *matHeaderCellDef>Ticker</th>
+          <td mat-cell *matCellDef="let element">{{ element.ticker }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>Price</th>
+          <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="change_amount">
+          <th mat-header-cell *matHeaderCellDef>Change Amount</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.change_amount }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="change_percentage">
+          <th mat-header-cell *matHeaderCellDef>Change Percentaget</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.change_percentage }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume">
+          <th mat-header-cell *matHeaderCellDef>Volume</th>
+          <td mat-cell *matCellDef="let element">{{ element.volume }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2"></tr>
+      </table>
+      <mat-paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </div>
+
+    <div class="container" *ngIf="param === '3'">
+      <h1>Returns Calculations</h1>
+
+      <h2>Mean Returns</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Stock</th>
+            <th>Mean Return</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of meanReturns">
+            <td>{{ stock.name }}</td>
+            <td>{{ formatNumber(stock.value) }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Standard Deviation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Stock</th>
+            <th>Standard Deviation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let stock of stdDev">
+            <td>{{ stock.name }}</td>
+            <td>{{ formatNumber(stock.value) }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Correlation Matrix</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th *ngFor="let stock of correlationIndexes">{{ stock }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of correlationMatrix; let i = index">
+            <th>{{ correlationIndexes[i] }}</th>
+            <td *ngFor="let value of row">{{ formatNumber(value) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="stock-table-container" *ngIf="param === '4'">
+      <table mat-table [dataSource]="dataSource4" matSort>
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+        </ng-container>
+
+        <!-- IBM Mean Column -->
+        <ng-container matColumnDef="ibmMean">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>IBM Mean</th>
+          <td mat-cell *matCellDef="let element">{{ element.ibmMean }}</td>
+        </ng-container>
+
+        <!-- AAPL Mean Column -->
+        <ng-container matColumnDef="aaplMean">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>AAPL Mean</th>
+          <td mat-cell *matCellDef="let element">{{ element.aaplMean }}</td>
+        </ng-container>
+
+        <!-- IBM StdDev Column -->
+        <ng-container matColumnDef="ibmStdDev">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>IBM StdDev</th>
+          <td mat-cell *matCellDef="let element">{{ element.ibmStdDev }}</td>
+        </ng-container>
+
+        <!-- AAPL StdDev Column -->
+        <ng-container matColumnDef="aaplStdDev">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>AAPL StdDev</th>
+          <td mat-cell *matCellDef="let element">{{ element.aaplStdDev }}</td>
+        </ng-container>
+
+        <!-- Window Start Column -->
+        <ng-container matColumnDef="windowStart">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            Window Start
+          </th>
+          <td mat-cell *matCellDef="let element">{{ element.windowStart }}</td>
+        </ng-container>
+
+        <!-- Header and Row Definitions -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns4"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns4"></tr>
+      </table>
+
+      <!-- Pagination -->
+      <mat-paginator
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20]"
+      ></mat-paginator>
+    </div>
+  </div>
+</div>

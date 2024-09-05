@@ -144,7 +144,7 @@ export class OptionsDataComponent implements OnInit {
     let url = `https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol=IBM&apikey=${this.apiKey}`;
     this.sharedService.getCoreStock(url).subscribe((result) => {
       if (result.Information) {
-        this.dataSource.data = [];
+        this.dataSource2.data = [];
         this._snackBar.open(result.Information, '', {
           duration: 2000,
         });

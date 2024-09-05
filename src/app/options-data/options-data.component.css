@@ -1,84 +1,108 @@
 .content {
-    width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .stock-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .stock-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .stock-title {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-  }
-  
-  .stock-data {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .data-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .data-item:last-child {
-    border-bottom: none;
-  }
-  
-  .data-label {
-    font-weight: bold;
-  }
-  
-  .data-value {
-    color: #333;
-  }
-  
-  .mat-cell,
-  .mat-header-cell {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  
-  .stock-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
-    max-width: 300px;
-    margin: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .stock-card h2 {
-    font-size: 1.5em;
-    margin-bottom: 12px;
-  }
-  
-  .stock-card p {
-    margin: 8px 0;
-  }
-  
-  .stock-card p strong {
-    font-weight: bold;
-  }
-  
-  
-  table {
-    width: 100%;
-  }
-  
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stock-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.stock-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.data-item:last-child {
+  border-bottom: none;
+}
+
+.data-label {
+  font-weight: bold;
+}
+
+.data-value {
+  color: #333;
+}
+
+.mat-cell,
+.mat-header-cell {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.stock-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  max-width: 300px;
+  margin: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stock-card h2 {
+  font-size: 1.5em;
+  margin-bottom: 12px;
+}
+
+.stock-card p {
+  margin: 8px 0;
+}
+
+.stock-card p strong {
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+}

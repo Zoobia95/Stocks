@@ -3,6 +3,5 @@ export const environment = {
 };
 
 export const API_KEY = {
-  //key: 'RIBXT3XYLI69PC0Q'
-  key: 'demo',
+  key: 'RIBXT3XYLI69PC0Q',
 };

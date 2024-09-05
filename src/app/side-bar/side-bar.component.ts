@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.css'],
 })
 export class SideBarComponent implements OnInit {
-  collapse1: boolean = false;
-  collapse2: boolean = false;
+  collapse1: boolean = true;
+  collapse2: boolean = true;
+  collapse3: boolean = true;
+  collapse4: boolean = true;
 
   constructor() {}
 

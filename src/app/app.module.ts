@@ -17,6 +17,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { OptionsDataComponent } from './options-data/options-data.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 // @ts-ignore
 @NgModule({
@@ -28,6 +30,7 @@ import { OptionsDataComponent } from './options-data/options-data.component';
   ],
   bootstrap: [AppComponent],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -37,7 +40,21 @@ import { OptionsDataComponent } from './options-data/options-data.component';
     MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,
+    DatePipe,
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
+  exports: [
+    CommonModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    DatePipe,
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()],
 })
 export class AppModule {}

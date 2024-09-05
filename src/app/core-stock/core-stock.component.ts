@@ -28,7 +28,7 @@ export class CoreStockComponent implements OnInit {
   secondApiData: any;
   displayedColumns2!: string[];
   dataSource2 = new MatTableDataSource<any>([]);
-  searchTerms: any;
+  searchTerms = 'a';
   displayedColumns3!: string[];
   dataSource3 = new MatTableDataSource<any>([]);
 

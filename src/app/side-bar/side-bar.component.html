@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid scroll-class">
   <div class="row flex-nowrap">
     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
       <div
@@ -8,7 +8,7 @@
           [routerLink]="['/core-stock', 1]"
           class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
         >
-          <span class="fs-5 d-none d-sm-inline">Stock App</span>
+          <span class="fs-3 d-none d-sm-inline mt-3">Stock App</span>
         </a>
         <ul
           class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
@@ -16,10 +16,7 @@
         >
           <li class="nav-item">
             <a
-              href="#submenu1"
-              data-bs-toggle="collapse"
-              class="nav-link color-class align-middle px-0"
-              (click)="collapse1 = !collapse1"
+              class="nav-link color-class-1 align-middle px-0"
             >
               <i
                 class="fs-4 bi"
@@ -31,7 +28,7 @@
               <span class="ms-1 d-none d-sm-inline">Core Stock APIs</span>
             </a>
             <ul
-              class="collapse nav flex-column ms-1"
+              class="collapse show nav flex-column ms-1"
               id="submenu1"
               data-bs-parent="#menu"
             >
@@ -122,10 +119,7 @@
 
           <li class="nav-item">
             <a
-              href="#submenu2"
-              data-bs-toggle="collapse"
-              class="nav-link color-class align-middle px-0"
-              (click)="collapse2 = !collapse2"
+              class="nav-link color-class-1 align-middle px-0"
             >
               <i
                 class="fs-4 bi"
@@ -137,7 +131,7 @@
               <span class="ms-1 d-none d-sm-inline">Options Data APIs</span>
             </a>
             <ul
-              class="collapse nav flex-column ms-1"
+              class="collapse show nav flex-column ms-1"
               id="submenu2"
               data-bs-parent="#menu"
             >
@@ -159,6 +153,98 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link color-class-1 align-middle px-0"
+              
+            >
+              <i
+                class="fs-4 bi"
+                [ngClass]="{
+                  'bi-chevron-right': !collapse3,
+                  'bi-chevron-down': collapse3
+                }"
+              ></i>
+              <span class="ms-1 d-none d-sm-inline">Alpha Intelligence</span>
+            </a>
+            <ul
+              class="collapse show nav flex-column ms-1"
+              id="submenu3"
+              data-bs-parent="#menu"
+            >
+              <li class="w-100">
+                <a
+                  [routerLink]="['/alpha-intelligence', 1]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">News and Sentiments</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/alpha-intelligence', 2]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Top Gainers and Losers</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/alpha-intelligence', 3]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Analytics</span>
+                </a>
+              </li>
+              <li class="w-100">
+                <a
+                  [routerLink]="['/alpha-intelligence', 4]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Analytics (Sliding Window)</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a
+              class="nav-link color-class-1 align-middle px-0"
+            >
+              <i
+                class="fs-4 bi"
+                [ngClass]="{
+                  'bi-chevron-right': !collapse4,
+                  'bi-chevron-down': collapse4
+                }"
+              ></i>
+              <span class="ms-1 d-none d-sm-inline">Fundamental Data</span>
+            </a>
+            <ul
+              class="collapse show nav flex-column ms-1"
+              id="submenu4"
+              data-bs-parent="#menu"
+            >
+              <li class="w-100">
+                <a
+                  [routerLink]="['/fundamental-data', 1]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Company Overview</span>
+                </a>
+              </li>
+              <!-- <li class="w-100">
+                <a
+                  [routerLink]="['/options-data', 2]"
+                  class="nav-link color-class px-0"
+                >
+                  <span class="d-none d-sm-inline">Historical Options</span>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+
         </ul>
       </div>
     </div>
