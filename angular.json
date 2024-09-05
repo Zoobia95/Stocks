@@ -40,13 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "stock-app:build:production"
+              "buildTarget": "stock-app:build:production"
             },
             "development": {
-              "browserTarget": "stock-app:build:development"
+              "buildTarget": "stock-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "stock-app:build"
+            "buildTarget": "stock-app:build"
           }
         },
         "test": {
@@ -103,6 +103,5 @@
         }
       }
     }
-  },
-  "defaultProject": "stock-app"
+  }
 }

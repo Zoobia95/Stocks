@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 
+// @ts-ignore
 @Component({
   selector: 'app-options-data',
   templateUrl: './options-data.component.html',

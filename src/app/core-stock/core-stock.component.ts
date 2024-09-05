@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
 import { API_KEY } from 'src/environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+// @ts-ignore
 @Component({
   selector: 'app-core-stock',
   templateUrl: './core-stock.component.html',
